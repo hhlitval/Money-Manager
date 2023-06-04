@@ -4,9 +4,138 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Money_Manager"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:uc="clr-namespace:Money_Manager.User_Controls"
+        xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Height="600" Width="1000" AllowsTransparency="True" WindowStyle="None"        
+        WindowStartupLocation="CenterScreen" Background="Transparent" FontFamily="Trebuchet MS">
+    <Grid MouseDown="DragWindow">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
+            <Border Width="180" CornerRadius="15 0 0 15">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#a2d2ff" Offset="0"/>
+                        <GradientStop Color="#cae9ff" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            <Border Grid.Column="1" CornerRadius="0 15 15 0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#bbdefb" Offset="0"/>
+                        <GradientStop Color="#e3f2fd" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="320"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Width="200">
+                <StackPanel Orientation="Vertical" Margin="0 30 20 60" HorizontalAlignment="Center">
+                    <Border CornerRadius="50" Background="#443f5e" Width="40" Height="40">
+                    <icon:PackIconMaterial Kind="HandCoin" Height="25" Foreground="#e8f1f2" Margin="0 0 0 0"
+                                                       VerticalAlignment="Center" HorizontalAlignment="Center" Width="40"/>
+                    </Border>
+                    <TextBlock Text="Money Manager" Foreground="#443f5e" FontSize="18" Margin="10" FontWeight="SemiBold"/>
+                </StackPanel>
+                
+                <Button Style="{StaticResource activeMenuButton}" Width="170">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <icon:PackIconMaterial Kind="Finance" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Overview" Style="{StaticResource menuButtonText}" />
+                        </StackPanel>
+                        <icon:PackIconMaterial Kind="ChevronRight" HorizontalAlignment="Right" Visibility="Visible"
+                                                   Style="{StaticResource buttonIconExpanded}"/>
+                    </Grid>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="SwapHorizontal" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Transactions" Style="{StaticResource menuButtonText}" />
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="CashPlus" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Savings" Style="{StaticResource menuButtonText}" />
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource menuButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="Cogs" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Settings" Style="{StaticResource menuButtonText}" />
+                    </StackPanel>
+                </Button>
+
+                <Separator Background="#9894b0" Width="100" Margin="0 10 20 0 ">
+
+                </Separator>
+
+                <Button Style="{StaticResource menuButton}" Click="ExitButtonClick">
+                    <StackPanel Orientation="Horizontal">
+                        <icon:PackIconMaterial Kind="ExitToApp" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Exit" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+            
+            
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="90" />
+                </Grid.RowDefinitions>
+                
+                <!-- Info cards -->
+                <Border Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10 30 0 10" Background="#cae9ff" Padding="20 0 20 0" CornerRadius="10">
+                    <TextBlock Text="Hello, Alexander!" Margin="0 3 0 3" Style="{StaticResource titleText}" />
+                </Border>
+
+                <uc:InfoCard Grid.Row="1" Grid.Column="0" Title="Income This Month" Amount="€1749,92" Image="\Images\income.png" Margin="10 0 5 0"
+                             Background1="#f9f9f9" Background2="#ffafcc" />
+                <uc:InfoCard Grid.Row="1" Grid.Column="1" Title="Expenses This Month" Amount="€1735,78" Image="\Images\expense.png" Margin="5 0 5 0"
+                             Background1="#f9f9f9" Background2="#a2d2ff"/>
+                <uc:InfoCard Grid.Row="1" Grid.Column="2" Title="Savings This Month" Amount="€0,00" Image="\Images\savings.png" Margin="5 0 1 0"
+                             Background1="#f9f9f9" Background2="#cdb4db"/>
+                
+                <!-- Expense pie chart -->
+                <Border Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="3" CornerRadius="10" 
+                        Background="#f9f9f9" Margin="10 20 0 20 "/>
+                <TextBlock Grid.Row="2" Text="Expenses" Style="{StaticResource titleText}" 
+                           VerticalAlignment="Bottom" Margin="30 10"/>
+                <uc:PieChart Grid.Row="3" Grid.ColumnSpan="3" Margin="0 0 10 0"/>
+                <Separator Grid.Row="4" Grid.ColumnSpan="3" Background="#d6d6d6" VerticalAlignment="Top"
+                           Margin="30 0 20 0"/>
+                <uc:ExpenseInfo Grid.Row="4" Grid.Column="0" Title="Daily" Amount="€57,86"/>
+                <uc:ExpenseInfo Grid.Row="4" Grid.Column="1" Title="Weekly" Amount="€433,95"/>
+                <uc:ExpenseInfo Grid.Row="4" Grid.Column="2" Title="Monthly" Amount="€1735,78"/>
+            </Grid>
+        </Grid>
+
+        
     </Grid>
 </Window>
