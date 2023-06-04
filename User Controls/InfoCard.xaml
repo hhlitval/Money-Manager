@@ -15,8 +15,9 @@
         
             <StackPanel Margin="20 0 0 15" VerticalAlignment="Bottom" Orientation="Vertical">
             <Image Source="{Binding Path=Image, ElementName=infoCard}" Width="35" Height="35" HorizontalAlignment="Right" Margin="0 0 10 0"/>
-            <TextBlock Text="{Binding Path=Title, ElementName=infoCard}" Foreground="#443f5e" FontSize="12" Margin="0 5 0 5" />
-                <TextBlock Text="{Binding Path=Amount, ElementName=infoCard}" Foreground="#443f5e" FontSize="18" FontWeight="SemiBold"/>
+            <TextBlock Text="{Binding Path=Title, ElementName=infoCard}" Foreground="#443f5e" FontSize="12" Margin="0 0 0 2" />
+                <TextBlock Text="{Binding Path=Amount, ElementName=infoCard}" Foreground="#443f5e" FontSize="18" FontWeight="SemiBold"
+                           />
             </StackPanel>
        
     </Border>

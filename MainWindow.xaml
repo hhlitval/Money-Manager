@@ -7,7 +7,7 @@
         xmlns:uc="clr-namespace:Money_Manager.User_Controls"
         xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         Height="600" Width="1000" AllowsTransparency="True" WindowStyle="None"        
-        WindowStartupLocation="CenterScreen" Background="Transparent" FontFamily="Trebuchet MS">
+        WindowStartupLocation="CenterScreen" Background="Transparent" >
     <Grid MouseDown="DragWindow">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -40,16 +40,17 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="320"/>
             </Grid.ColumnDefinitions>
-            
+
+            <!-- Main menu -->
             <StackPanel Width="200">
                 <StackPanel Orientation="Vertical" Margin="0 30 20 60" HorizontalAlignment="Center">
                     <Border CornerRadius="50" Background="#443f5e" Width="40" Height="40">
-                    <icon:PackIconMaterial Kind="HandCoin" Height="25" Foreground="#e8f1f2" Margin="0 0 0 0"
+                        <icon:PackIconMaterial Kind="HandCoin" Height="25" Foreground="#e8f1f2" Margin="0 0 0 0"
                                                        VerticalAlignment="Center" HorizontalAlignment="Center" Width="40"/>
                     </Border>
                     <TextBlock Text="Money Manager" Foreground="#443f5e" FontSize="18" Margin="10" FontWeight="SemiBold"/>
                 </StackPanel>
-                
+
                 <Button Style="{StaticResource activeMenuButton}" Width="170">
                     <Grid>
                         <StackPanel Orientation="Horizontal">
@@ -94,8 +95,8 @@
                 </Button>
 
             </StackPanel>
-            
-            
+
+
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -105,13 +106,14 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80" />
                     <RowDefinition Height="100" />
-                    <RowDefinition Height="70" />
+                    <RowDefinition Height="60" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="90" />
                 </Grid.RowDefinitions>
-                
+
                 <!-- Info cards -->
-                <Border Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10 30 0 10" Background="#cae9ff" Padding="20 0 20 0" CornerRadius="10">
+                <Border Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="10 30 0 10" Background="#cae9ff" Padding="20 0 20 0" CornerRadius="10"
+                        BorderThickness="1" BorderBrush="#a2d2ff">
                     <TextBlock Text="Hello, Alexander!" Margin="0 3 0 3" Style="{StaticResource titleText}" />
                 </Border>
 
@@ -121,21 +123,90 @@
                              Background1="#f9f9f9" Background2="#a2d2ff"/>
                 <uc:InfoCard Grid.Row="1" Grid.Column="2" Title="Savings This Month" Amount="€0,00" Image="\Images\savings.png" Margin="5 0 1 0"
                              Background1="#f9f9f9" Background2="#cdb4db"/>
-                
+
                 <!-- Expense pie chart -->
-                <Border Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="3" CornerRadius="10" 
-                        Background="#f9f9f9" Margin="10 20 0 20 "/>
+                <Border Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="3" CornerRadius="10" BorderThickness="1" BorderBrush="#a2d2ff"
+                        Background="Transparent" Margin="10 20 0 20 "/>
                 <TextBlock Grid.Row="2" Text="Expenses" Style="{StaticResource titleText}" 
-                           VerticalAlignment="Bottom" Margin="30 10"/>
+                           VerticalAlignment="Bottom" Margin="30 0 0 0"/>
                 <uc:PieChart Grid.Row="3" Grid.ColumnSpan="3" Margin="0 0 10 0"/>
-                <Separator Grid.Row="4" Grid.ColumnSpan="3" Background="#d6d6d6" VerticalAlignment="Top"
-                           Margin="30 0 20 0"/>
+                <Rectangle Grid.Row="4" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="2"
+                           Margin="30 0 20 0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#d489ff" Offset="0"/>
+                            <GradientStop Color="#7985ff" Offset="0.5"/>
+                            <GradientStop Color="#6ad8fd" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
                 <uc:ExpenseInfo Grid.Row="4" Grid.Column="0" Title="Daily" Amount="€57,86"/>
                 <uc:ExpenseInfo Grid.Row="4" Grid.Column="1" Title="Weekly" Amount="€433,95"/>
                 <uc:ExpenseInfo Grid.Row="4" Grid.Column="2" Title="Monthly" Amount="€1735,78"/>
             </Grid>
-        </Grid>
 
-        
+            <!-- Account balance Line chart -->
+            <StackPanel Grid.Column="2" Orientation="Vertical" Margin="20">
+                <Border Height="250" CornerRadius="10" Background="Transparent" Margin="0 0 0 10" 
+                    VerticalAlignment="Bottom" BorderThickness="1" BorderBrush="#a2d2ff">
+                    <Grid Margin="20 5 5 5">
+                        <TextBlock Text="Account Balance" Style="{StaticResource titleText}" VerticalAlignment="Top" 
+                                   Margin="0 10 10 10"/>
+                        <uc:LineChart/>
+                    </Grid>
+                </Border>
+
+                <!-- Transactions -->
+                <Border CornerRadius="10" Background="Transparent" Height="300">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="44" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="43" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Last Transactions" Style="{StaticResource titleText}" Foreground="#443f5e" Margin="20 0 0 0"/>
+
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <Border CornerRadius="5" Background="Transparent" Margin="20 5 10 5">
+                                <Image Source="/Images/kaufland.png" Width="30" Height="30" HorizontalAlignment="Left"/>
+                            </Border>
+                            <uc:Transaction Title="Kaufland" Date="01.06.2023" Amount="-58,51" Foreground1="#e65050"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Orientation="Horizontal">
+                            <Border CornerRadius="5" Background="Transparent" Margin="20 5 10 5">
+                                <Image Source="/Images/vodafone.png" Width="30" Height="30" HorizontalAlignment="Left"/>
+                            </Border>
+                            <uc:Transaction Title="Vodafone" Date="31.05.2023" Amount="-41,57" Foreground1="#e65050"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="3" Orientation="Horizontal">
+                            <Border CornerRadius="5" Background="Transparent" Margin="20 5 10 5">
+                                <Image Source="/Images/spotify.png" Width="30" Height="30" HorizontalAlignment="Left"/>
+                            </Border>
+                            <uc:Transaction Title="Spotify" Date="22.05.2023" Amount="-4,99" Foreground1="#e65050" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="4" Orientation="Horizontal">
+                            <Border CornerRadius="5" Background="Transparent" Margin="20 5 10 5">
+                                <Image Source="/Images/allianz.png" Width="30" Height="30" HorizontalAlignment="Left"/>
+                            </Border>
+                            <uc:Transaction Title="Allianz Versicherung" Date="22.05.2023" Amount="-39,55" Foreground1="#e65050"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="5" Orientation="Horizontal">
+                            <Border CornerRadius="5" Background="Transparent" Margin="20 5 10 5">
+                                <Image Source="/Images/haspa.png" Width="30" Height="30" HorizontalAlignment="Left"/>
+                            </Border>
+                            <uc:Transaction Title="Bargeldeinzahlung" Date="20.05.2023" Amount="+200,00" Foreground1="#34d96b"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

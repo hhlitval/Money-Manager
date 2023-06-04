@@ -33,7 +33,7 @@ namespace Money_Manager.User_Controls
                 {
                     Title = "Food",
                     Values = new ChartValues<ObservableValue> { new ObservableValue(721.07) },
-                    Fill = new SolidColorBrush(System.Windows.Media.Color.FromArgb(120,75,60,145)),
+                    Fill = new SolidColorBrush(System.Windows.Media.Color.FromArgb(120,133,138,227)),
 
                     DataLabels = false
                 },
@@ -48,14 +48,14 @@ namespace Money_Manager.User_Controls
                 {
                     Title = "Rent",
                     Values = new ChartValues<ObservableValue> { new ObservableValue(898.57) },
-                    Fill = new SolidColorBrush(System.Windows.Media.Color.FromArgb(120,252,111,139)),
+                    Fill = new SolidColorBrush(System.Windows.Media.Color.FromArgb(120,255,99,146)),
                     DataLabels = false
                 },
                 new PieSeries
                 {
                     Title = "Internet Purchases",
                     Values = new ChartValues<ObservableValue> { new ObservableValue(81.46) },
-                    Fill = new SolidColorBrush(System.Windows.Media.Color.FromArgb(120,103, 156, 235)),
+                    Fill = new SolidColorBrush(System.Windows.Media.Color.FromArgb(120,255,228,94)),
                     DataLabels = false
                 }
             };
