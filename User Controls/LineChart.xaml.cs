@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace Money_Manager.User_Controls
 {
     /// <summary>
-    /// Interaction logic for LineChart.xaml
+    /// Line chart (account balance) values 
     /// </summary>
     public partial class LineChart : UserControl
     {

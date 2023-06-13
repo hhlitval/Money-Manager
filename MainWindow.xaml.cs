@@ -25,17 +25,16 @@ namespace Money_Manager
             InitializeComponent();
         }
 
+        //Allows to drag window by clicking on it
         private void DragWindow(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
             {
                 this.DragMove();
             }
+        }        
 
-        }
-
-        bool isMaximized = false;
-
+        //Closing the application
         private void ExitButtonClick(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

@@ -14,13 +14,16 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left">
+            <!-- Recipient name of transaction -->
             <TextBlock Text="{Binding Path=Title, ElementName=transaction}" Foreground="#443f5e" 
                        FontSize="16" Margin="0 0 0 0" FontWeight="SemiBold" />
+            <!-- Date of transaction -->
             <TextBlock Text="{Binding Path=Date, ElementName=transaction}" Foreground="#867fad"
                        FontSize="12"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <!-- Amount in € -->
             <TextBlock  Text="{Binding Path=Amount, ElementName=transaction}" FontSize="14" FontWeight="SemiBold">
                 <TextBlock.Foreground>
                     <SolidColorBrush Color="{Binding Path=Foreground1, ElementName=transaction}" />

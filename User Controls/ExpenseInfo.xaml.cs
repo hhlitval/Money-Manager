@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Money_Manager.User_Controls
 {
     /// <summary>
-    /// Interaction logic for ExpenseInfo.xaml
+    /// Dependency properpties for ExpenseInfo user controls
     /// </summary>
     public partial class ExpenseInfo : UserControl
     {

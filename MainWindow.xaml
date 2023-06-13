@@ -96,7 +96,6 @@
 
             </StackPanel>
 
-
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -111,7 +110,7 @@
                     <RowDefinition Height="90" />
                 </Grid.RowDefinitions>
 
-                <!-- Info cards -->
+                <!-- Info cards section -->
                 <Border Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="10 30 0 10" Background="#cae9ff" Padding="20 0 20 0" CornerRadius="10"
                         BorderThickness="1" BorderBrush="#a2d2ff">
                     <TextBlock Text="Hello, Alexander!" Margin="0 3 0 3" Style="{StaticResource titleText}" />
@@ -156,7 +155,7 @@
                     </Grid>
                 </Border>
 
-                <!-- Transactions -->
+                <!-- Transactions sections  -->
                 <Border CornerRadius="10" Background="Transparent" Height="300">
                     <Grid>
                         <Grid.RowDefinitions>

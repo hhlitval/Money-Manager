@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Money_Manager.User_Controls
 {
     /// <summary>
-    /// Interaction logic for Transaction.xaml
+    /// Dependency properties for Transaction user control
     /// </summary>
     public partial class Transaction : UserControl
     {
